@@ -1,4 +1,4 @@
-![Python package](https://github.com/cdaudt/pipeline/workflows/Python%20package/badge.svg?branch=dev)
+![Python package](https://github.com/cdaudt/pipeline/workflows/Python%20package/badge.svg)
 
 # Simple data pipelines
 

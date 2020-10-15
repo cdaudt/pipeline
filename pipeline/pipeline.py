@@ -3,16 +3,13 @@ import time
 class Pipeline():
     def __init__(self, sink):
         self.__sink = sink
-        
-    def process(self, element):
-        return element
-    
+
     def pipe(self, element):
         c = type(self).__name__
         if 'step' not in element:
             element['step'] = list()
         element['step'].append(c)
-        element = self.process(element)
+        element = self.sink(element)
 
         if element == None:
             # done
@@ -24,3 +21,18 @@ class Pipeline():
 
         if (self.__sink):
             self.__sink.pipe(element)
+
+    def run(self):
+        count = 0;
+        for elem in iter(self.source, None):
+            count += 1
+            self.pipe(elem)
+        return count
+
+    def sink(self, element):
+        ''' default sink just returns element unchanged'''
+        return element
+
+    def source(self):
+        ''' default source returns empty element '''
+        return None

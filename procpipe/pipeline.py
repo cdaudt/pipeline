@@ -23,8 +23,10 @@ class Pipeline():
             self.__sink.pipe(element)
 
     def run(self):
-        count = 0;
-        for elem in iter(self.source, None):
+        count = 0
+        for elem in self.source():
+            if elem == None:
+                break
             count += 1
             self.pipe(elem)
         return count
@@ -34,5 +36,6 @@ class Pipeline():
         return element
 
     def source(self):
-        ''' default source returns empty element '''
-        return None
+        ''' default source returns one element '''
+        yield None
+

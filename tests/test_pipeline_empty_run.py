@@ -1,5 +1,5 @@
 import pytest
-from pipeline import pipeline
+from procpipe import pipeline
 
 def test_pipeline_empty_run():
     p = pipeline.Pipeline(None)

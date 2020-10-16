@@ -1,3 +1,8 @@
+# Simple example to show usage of the data processing pipes
+# Reads images, resizes, and stores them
+# See https://github.com/cdaudt/pipeline for more details
+# Author: Christian Daudt
+
 import argparse
 from sources import PictureSource
 from filters import SaveImage, ResizeImage

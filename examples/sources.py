@@ -21,15 +21,29 @@ class PictureSource(pipeline.Pipeline):
         return img
 
     def source(self):
-        image_idx = 0
         for i in range(len(self.files)):
             image = self.get_image(self.files[i])
             
             element = {
-                "image_id": image_idx,
+                "image_id": i,
                 "image": image,
                 'name': self.files[i]
             }
 
             yield (element)
-            image_idx +=1
+
+
+class ArraySource(pipeline.Pipeline):
+    def __init__(self, sink, arr):
+        self.arr = arr
+        super(ArraySource, self).__init__(sink)
+
+    def source(self):
+        for i in range(len(self.arr)):
+
+            element = {
+                "word_id": i,
+                "word": self.arr[i]
+            }
+
+            yield (element)

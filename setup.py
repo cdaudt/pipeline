@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="procpipe",
-    version="2020.10",
+    version="2020.11a1",
     author="Christian Daudt",
     author_email="csd@fixthebug.org",
     description="Simple data processing pipelines",

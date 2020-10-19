@@ -1,11 +1,19 @@
 import setuptools
+import datetime
+from git import Repo
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
+version = '2020.11'
+repo = Repo('.')
+branch = str(repo.head.ref)
+if repo.head.ref != 'master':
+    dev_addon = datetime.datetime.now().strftime('%d%H%M')
+    version = version + '.' + branch + dev_addon
 setuptools.setup(
     name="procpipe",
-    version="2020.11a1",
+    version=version,
     author="Christian Daudt",
     author_email="csd@fixthebug.org",
     description="Simple data processing pipelines",

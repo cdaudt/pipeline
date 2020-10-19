@@ -1,5 +1,4 @@
-import pipeline
-from pipeline import pipeline
+from procpipe import pipeline
 import skimage.transform
 import imageio
 

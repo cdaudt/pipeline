@@ -7,6 +7,8 @@ from procpipe import pipeline
 class PictureSource(pipeline.Pipeline):
     def __init__(self, sink, src, limit = -1):
         files = src
+        if limit > len(files):
+            raise IndexError
 
         if (limit == -1):
             self.files = files

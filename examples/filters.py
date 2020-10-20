@@ -42,3 +42,4 @@ class DropSmallWord(pipeline.Pipeline):
 class PrintWord(pipeline.Pipeline):
     def sink(self, element):
         print("{}".format(element['word']))
+        return element

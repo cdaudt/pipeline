@@ -3,4 +3,4 @@
 # See https://github.com/cdaudt/pipeline for more details
 # Author: Christian Daudt
 
-from .version import __version__
+__version__ = '2020.11'

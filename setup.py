@@ -1,16 +1,21 @@
 import setuptools
 import datetime
 from git import Repo
+import os.path
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
-version = '2020.11'
+
+exec(open('procpipe/version.py').read())
+
+version = __version__
 repo = Repo('.')
 branch = str(repo.head.ref)
 if repo.head.ref != 'master':
     dev_addon = datetime.datetime.now().strftime('%d%H%M')
     version = version + '.' + branch + dev_addon
+
 setuptools.setup(
     name="procpipe",
     version=version,

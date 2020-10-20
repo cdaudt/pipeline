@@ -1,1 +1,2 @@
-imageio
+imageio >= 2.9
+GitPython >= 3.1

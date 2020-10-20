@@ -2,14 +2,13 @@ import setuptools
 import datetime
 from git import Repo
 import os.path
-
+import procpipe
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
 
-exec(open('procpipe/version.py').read())
 
-version = __version__
+version = procpipe.__version__
 repo = Repo('.')
 branch = str(repo.head.ref)
 if repo.head.ref != 'master':
